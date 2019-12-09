@@ -1,6 +1,10 @@
 pipeline{
     agent none
-    stages {
+ stages {
+    stage ('Checkout'){
+        git branch: 'master', url: 'https://github.com/enakann/simple-python-pyinstaller-app.git'
+    }
+   
         stage('Build'){
             agent {
             docker {
@@ -11,5 +15,5 @@ pipeline{
             sh 'python -m py_compile sources/add2vals.py sources/calc.py'
         }
     }
-}
+ }
 }
