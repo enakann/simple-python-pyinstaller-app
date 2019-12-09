@@ -1,8 +1,8 @@
 pipeline{
     agent none
-    stgaes{
+    stages {
         stage('Build'){
-            docker{
+            docker {
                 image python:2-alpine
             }
         }
